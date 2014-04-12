@@ -38,3 +38,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :test do
+  # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
+  gem 'shoulda-matchers', '~> 2.5.0', require: false
+end
+
+group :development, :test do
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'rspec-rails', '~> 2.14.2'
+end
+
