@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe User do
+  it 'has many drafters' do
+    user = User.create(email: "randyranderson@example.com")
+    expected_drafters = [
+      Drafter.create(name: "foo", user_id: user.id),
+      Drafter.create(name: "bar", user_id: user.id)
+    ]
+
+    user.reload
+    expect(user.drafters.sort).to eq(expected_drafters.sort)
+  end
+
   describe "#email=" do
     it "downcases" do
       user = User.new

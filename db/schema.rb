@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412201636) do
+ActiveRecord::Schema.define(version: 20140412210810) do
+
+  create_table "drafters", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "drafters", ["user_id"], name: "index_drafters_on_user_id", using: :btree
 
   create_table "players", force: true do |t|
     t.string   "first_name",   null: false
