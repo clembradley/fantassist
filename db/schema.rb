@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413223224) do
+ActiveRecord::Schema.define(version: 20140413230851) do
 
   create_table "draft_picks", force: true do |t|
     t.integer  "drafter_id"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140413223224) do
     t.datetime "updated_at"
     t.integer  "walks_given_up"
     t.integer  "walks_drawn"
+    t.integer  "hits_given_up"
   end
 
   add_index "stats", ["player_id"], name: "index_stats_on_player_id", using: :btree
