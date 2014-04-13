@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'awesome_print', '~> 1.2.0'
+
 group :test do
   # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
   gem 'shoulda-matchers', '~> 2.5.0', require: false
