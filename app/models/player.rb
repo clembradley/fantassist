@@ -1,4 +1,7 @@
 class Player < ActiveRecord::Base
+  has_many :draft_picks, dependent: :destroy
+  has_many :stats, dependent: :destroy
+
   POSITIONS = [POSITION_1B = '1B', POSITION_2B = '2B']
   ORGANIZATIONS = [ORGANIZATION_CHC = 'ChC', ORGANIZATION_CHW = 'ChW']
 

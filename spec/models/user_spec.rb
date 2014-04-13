@@ -12,6 +12,16 @@ describe User do
     expect(user.drafters.sort).to eq(expected_drafters.sort)
   end
 
+  specify 'associated drafters get destroyed when a user is destroyed' do
+    user = create(:user)
+    2.times { create(:drafter, user: user) }
+    expect(user.reload.drafters).to_not be_nil
+
+    user.destroy
+
+    expect(Drafter.where(user_id: user.id)).to be_empty
+  end
+
   describe "#email=" do
     it "downcases" do
       user = User.new

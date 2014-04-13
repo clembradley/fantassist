@@ -1,6 +1,6 @@
 class Drafter < ActiveRecord::Base
   belongs_to :user
-  has_many :draft_picks
+  has_many :draft_picks, dependent: :destroy
 
   validates :name, presence: true
   validates :user, presence: true
