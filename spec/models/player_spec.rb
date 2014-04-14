@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Player do
 
-  it 'has many draft picks' do
+  it 'can have a draft pick' do
     player = create(:player)
-    expected_draft_picks = [create(:draft_pick, player: player), create(:draft_pick, player: player)]
+    expected_draft_pick = create(:draft_pick, player: player)
 
-    expect(player.reload.draft_picks.sort).to eq(expected_draft_picks.sort)
+    expect(player.reload.draft_pick).to eq(expected_draft_pick)
   end
 
   it 'has many stats' do
@@ -16,10 +16,10 @@ describe Player do
     expect(player.reload.stats.sort).to eq(expected_stats.sort)
   end
 
-  specify 'associated draft picks get destroyed when a player is destroyed' do
+  specify 'associated draft pick get destroyed when a player is destroyed' do
     player = create(:player)
-    2.times { create(:draft_pick, player: player) }
-    expect(player.reload.draft_picks).to_not be_nil
+    expected_draft_pick = create(:draft_pick, player: player)
+    expect(player.reload.draft_pick).to_not be_nil
 
     player.destroy
 

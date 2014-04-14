@@ -6,6 +6,6 @@ describe DraftPick do
     it { should validate_presence_of(:drafter) }
     it { should validate_presence_of(:player_id) }
     it { should validate_presence_of(:player) }
-    it { should validate_uniqueness_of(:player_id).scoped_to(:drafter_id) }
+    it { should validate_uniqueness_of(:player_id) }
   end
 end

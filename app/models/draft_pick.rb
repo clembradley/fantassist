@@ -4,6 +4,6 @@ class DraftPick < ActiveRecord::Base
 
   validates :drafter_id, presence: true
   validates :drafter, presence: true
-  validates :player_id, presence: true, uniqueness: {scope: :drafter_id}
+  validates :player_id, presence: true, uniqueness: true
   validates :player, presence: true
 end
