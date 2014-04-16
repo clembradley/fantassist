@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', '~> 1.1.2', group: :development
 
 gem 'haml', '~> 4.0.5'
+gem 'haml-rails', '~> 0.5.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
