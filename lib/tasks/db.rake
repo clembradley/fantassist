@@ -4,11 +4,11 @@ namespace :db do
   desc 'load stats from a csv; PATH is required'
   task load_stats: :environment do
     filename = ENV['FILENAME']
-    raise '** PATH is required **' unless filename.present?
+    raise '** FILENAME is required **' unless filename.present?
     @year = ENV['YEAR']
-    raise '** PATH is required **' unless @year.present?
+    raise '** YEAR is required **' unless @year.present?
     @projection = ENV['PROJECTION']
-    raise '** PATH is required **' unless @projection.present?
+    raise '** PROJECTION is required **' unless @projection.present?
 
     puts '****************************************************************************************************'
     puts 'Warning -- This will drop all current players in the db, their stats, and any associated draft picks'
@@ -55,10 +55,13 @@ namespace :db do
     {
       at_bats: row['AB'],
       earned_runs: row['ER'],
+      games_played: row['g'],
+      hit_by_pitch: row['HBP'],
       hits: row['H_H'],
       hits_given_up: row['P_H'],
       home_runs: row['HR'],
       innings_pitched: row['IP'],
+      plate_appearances: row['PA'],
       player_id: player_id,
       projection: @projection,
       quality_starts: row['QS'],
