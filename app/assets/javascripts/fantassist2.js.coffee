@@ -5,5 +5,8 @@ window.Fantassist2 =
   Routers: {}
   initialize: -> alert 'Hello from Backbone!'
 
-$(document).ready ->
-  Fantassist2.initialize()
+# helper function for Hogan Templates
+Fantassist2.template = (filename) -> HoganTemplates[filename]
+
+#$(document).ready ->
+  #Fantassist2.initialize()
