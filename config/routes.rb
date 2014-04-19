@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'draft#index'
 
-   get 'api/v1/players/:player_id/stats/:year' => 'api/v1/stats#show'
+   namespace :api do
+     namespace :v1 do
+       resources :stats, only: [:index, :show]
+     end
+   end
+
+   #get 'api/v1/players/:player_id/stats/:year' => 'api/v1/stats#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

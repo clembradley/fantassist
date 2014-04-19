@@ -1,2 +1,11 @@
 .row
-  .col-md-1 hello world!
+  .col-md-12
+    .stuff
+
+:javascript
+  $(function() {
+    stats = new Fantassist2.Collections.Stats(#{@stats.to_json});
+    statsView = new Fantassist2.Views.StatsView({collection: stats});
+    $('.stuff').html(statsView.render().el);
+  });
+
