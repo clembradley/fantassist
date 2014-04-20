@@ -1,6 +1,14 @@
 module V1; end
 
 class Api::V1::StatsController < ApplicationController
+  def index
+    stats = Stat.first(50)
+
+    stat_presenters = stats.map { |stat| V1::StatPresenter.new(stat) }
+
+    render json: stat_presenters
+  end
+
   def show
     stat = Stat.find_by(_stat_params)
 
@@ -12,6 +20,6 @@ class Api::V1::StatsController < ApplicationController
   end
 
   def _stat_params
-    params.permit(:player_id, :year)
+    params.permit(:id)
   end
 end

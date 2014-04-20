@@ -1,0 +1,7 @@
+%td {{player.first_name}} {{player.last_name}}
+%td {{games_played}}
+%td {{runs}}
+%td {{home_runs}}
+%td {{rbis}}
+%td {{stolen_bases}}
+%td {{on_base_percentage}}
