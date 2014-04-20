@@ -43,4 +43,8 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Requests::JsonHelpers, type: :request
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
