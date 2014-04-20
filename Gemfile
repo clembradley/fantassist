@@ -56,6 +56,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'faker', '~> 1.3.0'
+  gem 'fuubar', '~> 1.3.2'
   gem 'pry-rails', '~> 0.3.2'
   gem 'rspec-rails', '~> 2.14.2'
 end
