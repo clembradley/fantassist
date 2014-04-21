@@ -12,4 +12,8 @@ class Player < ActiveRecord::Base
   validates :organization, inclusion: {in: ORGANIZATIONS, allow_blank: true}, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  def self.undrafted
+    joins('LEFT OUTER JOIN draft_picks ON draft_picks.player_id = players.id').where('draft_picks.player_id IS NULL')
+  end
 end

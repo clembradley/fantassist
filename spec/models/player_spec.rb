@@ -36,6 +36,16 @@ describe Player do
     expect(Stat.where(player_id: player.id)).to be_empty
   end
 
+  describe '.undrafted' do
+    it 'returns all players who are not associated with a draft pick' do
+      expected_players = create_list(:player, 2)
+      draft_pick = create(:draft_pick) # will also create a player
+      expect(Player.count).to eq(3) # sanity check
+
+      expect(Player.undrafted).to eq(expected_players)
+    end
+  end
+
   context 'validations' do
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
