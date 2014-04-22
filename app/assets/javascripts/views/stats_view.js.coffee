@@ -2,7 +2,7 @@ class Fantassist2.Views.StatsView extends Backbone.View
 
   tagName: 'table'
 
-  className: 'table table-condensed'
+  className: 'table table-condensed stats-table'
 
   render: ->
     @$el.html('<thead><th></th><th>G</th><th>R</th><th>HR</th><th>RBIs</th><th>SB</th><th>OBP</th></thead>')

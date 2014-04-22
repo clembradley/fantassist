@@ -1,14 +1,14 @@
 FactoryGirl.define do
   factory :stat do
     player
-    projection { [true, false].sample }
+    projection false
     year { [2012, 2013, 2014].sample }
 
     trait :hitter do
-      at_bats { rand(400..620) }
+      at_bats { rand(401..620) }
       hit_by_pitch { rand(1..20) }
       hits { rand(115..200) }
-      home_runs { rand(10..50) }
+      home_runs { rand(16..50) }
       plate_appearances { rand(450..700) }
       rbis { rand(50..140) }
       runs { rand(50..140) }
@@ -25,6 +25,10 @@ FactoryGirl.define do
       strikeouts { rand(100..250) }
       walks_given_up { rand(40..130) }
       wins { rand(5..24) }
+    end
+
+    trait :projection do
+      projection true
     end
   end
 end
