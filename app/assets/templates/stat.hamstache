@@ -1,4 +1,5 @@
-%td {{player.first_name}} {{player.last_name}}
+%td
+  %a.draftable-player{href: '#'} {{player.first_name}} {{player.last_name}}
 %td {{games_played}}
 %td {{runs}}
 %td {{home_runs}}

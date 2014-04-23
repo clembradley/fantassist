@@ -21,6 +21,7 @@
 
 :javascript
   $(function() {
+    Fantassist2.current_drafter = #{@current_drafter.to_json}
     stats = new Fantassist2.Collections.Stats(#{@stats.to_json});
     statsView = new Fantassist2.Views.StatsView({collection: stats});
     $('#stats').html(statsView.render().el);

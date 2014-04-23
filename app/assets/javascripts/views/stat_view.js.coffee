@@ -4,7 +4,15 @@ class Fantassist2.Views.StatView extends Backbone.View
 
   className: 'stat'
 
+  events:
+    'click .draftable-player': 'handleClickPlayer'
+
   render: ->
-    console.log @model.attributes
     @$el.html(Fantassist2.template('stat').render(@model.attributes))
     @
+
+  handleClickPlayer: (e) ->
+    e.preventDefault()
+    newDraftPick = new Fantassist2.Models.DraftPick
+    newDraftPick.set player_id: @model.attributes.player.id, drafter_id: Fantassist2.current_drafter.id
+    newDraftPick.save()

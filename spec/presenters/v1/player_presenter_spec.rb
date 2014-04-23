@@ -10,6 +10,7 @@ describe V1::PlayerPresenter do
 
       expect(player_presenter.as_json).to eq(
         first_name: player.first_name,
+        id: player.id,
         last_name: player.last_name,
         organization: player.organization,
         position: player.position
