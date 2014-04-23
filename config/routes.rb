@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    namespace :api do
      namespace :v1 do
        resources :stats, only: [:index, :show]
+       resources :draft_picks, only: [:create, :index]
      end
    end
 
