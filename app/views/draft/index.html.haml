@@ -1,11 +1,28 @@
 .row
-  .col-md-12
-    .stuff
+  #stats.col-md-8
+  #drafted.col-md-3.col-md-offset-1
+    %table.table.table-condensed
+      %thead
+        %th Drafted
+      %tr
+        %td foo
+      %tr
+        %td bar
+      %tr
+        %td foo
+      %tr
+        %td bar
+      %tr
+        %td foo
+      %tr
+        %td bar
+      %tr
+        %td foo
 
 :javascript
   $(function() {
     stats = new Fantassist2.Collections.Stats(#{@stats.to_json});
     statsView = new Fantassist2.Views.StatsView({collection: stats});
-    $('.stuff').html(statsView.render().el);
+    $('#stats').html(statsView.render().el);
   });
 
