@@ -6,6 +6,7 @@ FactoryGirl.define do
 
     trait :hitter do
       at_bats { rand(401..620) }
+      games_played { rand(140..162) }
       hit_by_pitch { rand(1..20) }
       hits { rand(115..200) }
       home_runs { rand(16..50) }
@@ -18,6 +19,7 @@ FactoryGirl.define do
 
     trait :pitcher do
       earned_runs { rand(90..120) }
+      games_played { rand(28..34) }
       hits_given_up { rand(100..200) }
       innings_pitched { rand(150..240) }
       quality_starts { rand(8..30) }

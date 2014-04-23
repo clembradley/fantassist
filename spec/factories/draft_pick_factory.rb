@@ -9,5 +9,11 @@ FactoryGirl.define do
         create(:stat, type, player: draft_pick.player)
       end
     end
+
+    trait :with_hitting_stat do
+      after(:create) do |draft_pick|
+        create(:stat, :hitter, player: draft_pick.player)
+      end
+    end
   end
 end
