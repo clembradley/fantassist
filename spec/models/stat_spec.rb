@@ -2,6 +2,24 @@ require 'spec_helper'
 
 describe Stat do
 
+  describe '.undrafted' do
+
+    it 'returns all stats who are not associated with a draft pick' do
+      expected_stats = create_list(:stat, 2, year: 2013)
+      not_expected_stat = create(:stat, year: 2013)
+      create(:draft_pick, player: not_expected_stat.player)
+
+      expect(Stat.undrafted).to eq(expected_stats)
+    end
+
+    it 'returns a relation that can be queried with other ActiveRecord queries' do
+      expected_stats = create_list(:stat, 2, year: 2013)
+      not_expected_stat = create(:stat, year: 2012)
+
+      expect(Stat.undrafted.where(year: 2013)).to eq(expected_stats)
+    end
+  end
+
   describe '#batting_average' do
     it 'returns a float of hits divided by the number of at bats' do
       at_bats = 402

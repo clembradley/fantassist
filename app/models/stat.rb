@@ -6,6 +6,13 @@ class Stat < ActiveRecord::Base
   validates :projection, inclusion: {in: [true, false]}
   validates :year, presence: true
 
+  def self.undrafted
+    Stat
+    .joins(:player)
+    .joins('LEFT OUTER JOIN draft_picks ON draft_picks.player_id = players.id')
+    .where('draft_picks.player_id IS NULL')
+  end
+
   def batting_average
     return nil unless at_bats
     hits.to_f / at_bats.to_f
