@@ -9,8 +9,9 @@ describe V1::DraftPickPresenter do
       draft_pick_presenter = V1::DraftPickPresenter.new(draft_pick)
 
       expect(draft_pick_presenter.as_json).to eq(
-        player: V1::PlayerPresenter.new(draft_pick.player).as_json,
-        drafter: {name: draft_pick.drafter.name}
+        drafter: {name: draft_pick.drafter.name},
+        id: draft_pick.id,
+        player: V1::PlayerPresenter.new(draft_pick.player).as_json
       )
     end
   end

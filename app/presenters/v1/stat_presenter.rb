@@ -14,6 +14,7 @@ class V1::StatPresenter
       hits: @stat.hits,
       hits_given_up: @stat.hits_given_up,
       home_runs: @stat.home_runs,
+      id: @stat.id,
       innings_pitched: @stat.innings_pitched,
       on_base_percentage: @stat.on_base_percentage && sprintf("%0.03f", @stat.on_base_percentage),
       plate_appearances: @stat.plate_appearances,
