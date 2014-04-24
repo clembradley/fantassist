@@ -16,4 +16,8 @@ class Player < ActiveRecord::Base
   def self.undrafted
     joins('LEFT OUTER JOIN draft_picks ON draft_picks.player_id = players.id').where('draft_picks.player_id IS NULL')
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

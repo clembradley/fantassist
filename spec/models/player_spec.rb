@@ -46,6 +46,14 @@ describe Player do
     end
   end
 
+  describe '#full_name' do
+    it 'returns a player\'s first and last name' do
+      player = Player.new(first_name: 'Sterling', last_name: 'Archer')
+
+      expect(player.full_name).to eq('Sterling Archer')
+    end
+  end
+
   context 'validations' do
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
