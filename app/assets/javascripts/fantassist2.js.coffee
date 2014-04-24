@@ -3,7 +3,7 @@ window.Fantassist2 =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  events: _.extend {}, Backbone.Events
 
 # helper function for Hogan Templates
 Fantassist2.template = (filename) -> HoganTemplates[filename]
