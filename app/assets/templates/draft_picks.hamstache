@@ -1,0 +1,6 @@
+%table.table.table-condensed.draft-picks-table
+  %thead
+    %tr
+      %th Drafted
+  %tbody
+%a#reset-btn.btn.btn-danger{href: '#'} reset

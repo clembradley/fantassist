@@ -14,6 +14,7 @@ class Fantassist2.Views.StatView extends Backbone.View
   handleClickPlayer: (e) =>
     e.preventDefault()
     newDraftPick = new Fantassist2.Models.DraftPick
-    newDraftPick.set player_id: @model.attributes.player.id, drafter_id: Fantassist2.current_drafter.id
+    newDraftPick.set player_id: @model.attributes.player.id, drafter_id: Fantassist2.current_drafter.id, player: @model.attributes.player
     newDraftPick.save()
+    Fantassist2.EventBus.trigger('draftPick:create', newDraftPick)
     @remove()

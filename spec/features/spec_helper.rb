@@ -11,3 +11,11 @@ end
 def stats_table
   find('table.stats-table')
 end
+
+def draft_picks_table
+  find('table.draft-picks-table')
+end
+
+def all_draft_pick_rows
+  all('table.draft-picks-table tr.draft-pick')
+end

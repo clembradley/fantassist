@@ -29,8 +29,20 @@ describe 'the initial draft page' do
 
     visit root_path
 
+    expect(all_stat_rows.count).to eq(3)
     all_stat_rows.each_with_index do |row, i|
       expect(row).to have_content(stat_content(expected_stats[i]))
+    end
+  end
+
+  it 'has a table of drafted players', js: true do
+    expected_draft_picks = create_list(:draft_pick, 2)
+
+    visit root_path
+
+    expect(all_draft_pick_rows.count).to eq(2)
+    all_draft_pick_rows.each_with_index do |row, i|
+      expect(row).to have_content(expected_draft_picks[i].player.full_name)
     end
   end
 

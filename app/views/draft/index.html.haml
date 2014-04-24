@@ -1,29 +1,19 @@
 .row
   #stats.col-md-8
   #drafted.col-md-3.col-md-offset-1
-    %table.table.table-condensed
-      %thead
-        %th Drafted
-      %tr
-        %td foo
-      %tr
-        %td bar
-      %tr
-        %td foo
-      %tr
-        %td bar
-      %tr
-        %td foo
-      %tr
-        %td bar
-      %tr
-        %td foo
 
 :javascript
   $(function() {
-    Fantassist2.current_drafter = #{@current_drafter.to_json}
+    Fantassist2.current_drafter = #{@current_drafter.to_json};
+
     stats = new Fantassist2.Collections.Stats(#{@stats.to_json});
     statsView = new Fantassist2.Views.StatsView({collection: stats});
+
+    draftPicks = new Fantassist2.Collections.DraftPicks(#{@draft_picks.to_json});
+    draftPicksView = new Fantassist2.Views.DraftPicksView({collection: draftPicks});
+
+
     $('#stats').html(statsView.render().el);
+    $('#drafted').html(draftPicksView.render().el);
   });
 
