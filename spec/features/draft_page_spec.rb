@@ -13,7 +13,7 @@ describe 'the initial draft page' do
 
     find('.navbar').click_link('Fantassist2')
 
-    expect(page).to have_selector('table.stats-table')
+    expect(current_path).to eq(root_path)
   end
 
   it 'has a stats table with the correct table headers', js: true do
