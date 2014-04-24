@@ -1,4 +1,4 @@
-class V1::PlayerPresenter
+class V1::PlayerPresenter < V1::BasePresenter
 
   def initialize(player)
     @player = player

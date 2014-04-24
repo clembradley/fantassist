@@ -1,4 +1,4 @@
-class V1::DraftPickPresenter
+class V1::DraftPickPresenter < V1::BasePresenter
 
   def initialize(draft_pick)
     @draft_pick = draft_pick

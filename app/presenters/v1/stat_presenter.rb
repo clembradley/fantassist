@@ -1,4 +1,4 @@
-class V1::StatPresenter
+class V1::StatPresenter < V1::BasePresenter
 
   def initialize(stat)
     @stat = stat

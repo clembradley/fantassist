@@ -1,4 +1,4 @@
-class V1::ErrorsPresenter
+class V1::ErrorsPresenter < V1::BasePresenter
 
   def initialize(errors)
     @errors = errors.full_messages
