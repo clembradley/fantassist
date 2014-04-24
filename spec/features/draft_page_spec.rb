@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 describe 'the initial draft page' do
 
@@ -44,17 +44,5 @@ describe 'the initial draft page' do
     all_stat_rows.each do |row|
       expect(row).to have_no_content(stat_content(not_expected_stat))
     end
-  end
-
-  def all_stat_rows
-    all('table.stats-table tr.stat')
-  end
-
-  def stat_content(stat)
-    "#{stat.player.first_name} #{stat.player.last_name} #{stat.games_played} #{stat.runs} #{stat.home_runs} #{stat.rbis} #{stat.stolen_bases} #{stat.on_base_percentage.round(3)}"
-  end
-
-  def stats_table
-    find('table.stats-table')
   end
 end

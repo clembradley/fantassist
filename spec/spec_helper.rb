@@ -7,6 +7,7 @@ require 'shoulda-matchers'
 require 'capybara/poltergeist'
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'timeout'
 
 Capybara.javascript_driver = :poltergeist
 
@@ -71,5 +72,18 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+end
+
+RSpec::Matchers.define :become_true do |expected|
+  match do |block|
+    begin
+      Timeout.timeout(Capybara.default_wait_time) do
+        sleep(0.1) until value = block.call
+        value
+      end
+    rescue TimeoutError
+      false
+    end
   end
 end
