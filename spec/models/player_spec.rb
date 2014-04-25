@@ -2,38 +2,38 @@ require 'spec_helper'
 
 describe Player do
 
-  it 'can have a draft pick' do
-    player = create(:player)
-    expected_draft_pick = create(:draft_pick, player: player)
+  describe 'associations' do
+    let(:player) { create(:player) }
 
-    expect(player.reload.draft_pick).to eq(expected_draft_pick)
-  end
+    it 'can have a draft pick' do
+      expected_draft_pick = create(:draft_pick, player: player)
 
-  it 'has many stats' do
-    player = create(:player)
-    expected_stats = [create(:stat, player: player), create(:stat, player: player)]
+      expect(player.draft_pick).to eq(expected_draft_pick)
+    end
 
-    expect(player.reload.stats.sort).to eq(expected_stats.sort)
-  end
+    it 'has many stats' do
+      expected_stats = create_list(:stat, 2, player: player)
 
-  specify 'associated draft pick get destroyed when a player is destroyed' do
-    player = create(:player)
-    expected_draft_pick = create(:draft_pick, player: player)
-    expect(player.reload.draft_pick).to_not be_nil
+      expect(player.stats.sort).to eq(expected_stats.sort)
+    end
 
-    player.destroy
+    specify 'associated draft pick get destroyed when a player is destroyed' do
+      create(:draft_pick, player: player)
+      expect(player.draft_pick).to be_present
 
-    expect(DraftPick.where(player_id: player.id)).to be_empty
-  end
+      player.destroy
 
-  specify 'associated stats get destroyed when a player is destroyed' do
-    player = create(:player)
-    2.times { create(:stat, player: player) }
-    expect(player.reload.stats).to_not be_nil
+      expect(DraftPick.where(player_id: player.id)).to be_blank
+    end
 
-    player.destroy
+    specify 'associated stats get destroyed when a player is destroyed' do
+      create_list(:stat, 2, player: player)
+      expect(player.stats).to be_present
 
-    expect(Stat.where(player_id: player.id)).to be_empty
+      player.destroy
+
+      expect(Stat.where(player_id: player.id)).to be_blank
+    end
   end
 
   describe '.undrafted' do
@@ -55,6 +55,8 @@ describe Player do
   end
 
   context 'validations' do
+    subject { build(:player) }
+
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:position) }

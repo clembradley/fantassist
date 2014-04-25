@@ -14,7 +14,7 @@ describe Stat do
 
     it 'returns a relation that can be queried with other ActiveRecord queries' do
       expected_stats = create_list(:stat, 2, year: 2013)
-      not_expected_stat = create(:stat, year: 2012)
+      create(:stat, year: 2012)
 
       expect(Stat.undrafted.where(year: 2013)).to eq(expected_stats)
     end
@@ -58,6 +58,8 @@ describe Stat do
   end
 
   context 'validations' do
+    subject { build(:stat) }
+
     it { should validate_presence_of(:player) }
     it { should validate_presence_of(:player_id) }
     it { should validate_presence_of(:year) }

@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe DraftPick do
   describe 'validations' do
+    subject { build(:draft_pick) }
+
     it { should validate_presence_of(:drafter_id) }
     it { should validate_presence_of(:drafter) }
     it { should validate_presence_of(:player_id) }

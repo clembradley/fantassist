@@ -1,26 +1,30 @@
 require 'spec_helper'
 
 describe Drafter do
-  it 'has many draft picks' do
-    drafter = create(:drafter)
-    expected_draft_picks = [create(:draft_pick, drafter: drafter), create(:draft_pick, drafter: drafter)]
 
-    drafter.reload
+  describe 'associations' do
 
-    expect(drafter.draft_picks.sort).to eq(expected_draft_picks.sort)
-  end
+    let(:drafter) { create(:drafter) }
 
-  specify 'associated draft picks get destroyed when a drafter is destroyed' do
-    drafter = create(:drafter)
-    2.times { create(:draft_pick, drafter: drafter) }
-    expect(drafter.reload.draft_picks).to_not be_nil
+    it 'has many draft picks' do
+      expected_draft_picks = create_list(:draft_pick, 2, drafter: drafter)
 
-    drafter.destroy
+      expect(drafter.draft_picks.sort).to eq(expected_draft_picks.sort)
+    end
 
-    expect(DraftPick.where(drafter_id: drafter.id)).to be_empty
+    specify 'associated draft picks get destroyed when a drafter is destroyed' do
+      create_list(:draft_pick, 2, drafter: drafter)
+      expect(drafter.draft_picks).to be_present
+
+      drafter.destroy
+
+      expect(DraftPick.where(drafter_id: drafter.id)).to be_blank
+    end
   end
 
   context 'validations' do
+    subject { build(:drafter) }
+
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:user) }
     it { should validate_presence_of(:user_id) }
