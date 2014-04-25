@@ -19,5 +19,7 @@
           %ul.nav.navbar-nav
             %li.active
               %a{href: "#"} Draft
+            %li
+              = image_tag('ajax-loader.gif', id: 'ajax-loader', style: 'display: block; padding: 15px; visibility: hidden')
     .container-fluid
       = yield
