@@ -1,1 +1,1 @@
-%td {{player.first_name}} {{player.last_name}} ({{player.position}})
+%td.draft-pick {{player.first_name}} {{player.last_name}} ({{player.position}})

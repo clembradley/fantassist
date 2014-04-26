@@ -22,7 +22,8 @@ class Fantassist2.Views.DraftPicksView extends Backbone.View
 
   handleReset: (e) ->
     e.preventDefault()
-    @$('tbody').html('')
-    @collection.each (draftPick) ->
-      draftPick.destroy()
+    @destroyAllDraftPicks()
 
+  destroyAllDraftPicks: ->
+    while @collection.models.length > 0
+      @collection.models[0].destroy()

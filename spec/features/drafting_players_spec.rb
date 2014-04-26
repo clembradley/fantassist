@@ -34,4 +34,22 @@ feature 'Drafting players' do
 
     expect(draft_picks_table).to have_content("#{stat.player.full_name} (#{stat.player.position})")
   end
+
+  scenario 'When I click the reset button, the draft picks table is cleared', js: true do
+    draft_picks = create_list(:draft_pick, 2)
+
+    visit root_path
+    click_on 'reset'
+
+    expect(draft_picks_table).to have_no_css('.draft-pick')
+  end
+
+  scenario 'When I click the reset button, all draft picks are destroyed', js: true do
+    draft_picks = create_list(:draft_pick, 2)
+
+    visit root_path
+    click_on 'reset'
+
+    expect { DraftPick.all.blank? }.to become_true
+  end
 end
