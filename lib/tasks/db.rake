@@ -3,20 +3,28 @@ namespace :db do
 
   desc 'load stats from a csv; PATH is required'
   task load_stats: :environment do
-    filename = ENV['FILENAME']
-    raise '** FILENAME is required **' unless filename.present?
-    @year = ENV['YEAR']
-    raise '** YEAR is required **' unless @year.present?
-    @projection = ENV['PROJECTION']
-    raise '** PROJECTION is required **' unless @projection.present?
+    if Rails.env.development?
+      filename = ENV['FILENAME']
+      raise '** FILENAME is required **' unless filename.present?
+      @year = ENV['YEAR']
+      raise '** YEAR is required **' unless @year.present?
+      @projection = ENV['PROJECTION']
+      raise '** PROJECTION is required **' unless @projection.present?
+    else
+      filename = '2013_all_mlb_stats.csv'
+      @year = 2013
+      @projection = false
+    end
 
-    puts '****************************************************************************************************'
-    puts 'Warning -- This will drop all current players in the db, their stats, and any associated draft picks'
-    puts '****************************************************************************************************'
-    print '> '
-    confirm = STDIN.gets.chomp.downcase
+    if Rails.env.development?
+      puts '****************************************************************************************************'
+      puts 'Warning -- This will drop all current players in the db, their stats, and any associated draft picks'
+      puts '****************************************************************************************************'
+      print '> '
+      confirm = STDIN.gets.chomp.downcase
 
-    next unless confirm == 'y' or confirm == 'yes'
+      next unless confirm == 'y' or confirm == 'yes'
+    end
 
     Player.destroy_all
     puts "--loading stats from #{filename}\n"
