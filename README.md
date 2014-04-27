@@ -1,4 +1,4 @@
-fantassist2
+fantassist
 ===========
 
 ## Initial Setup

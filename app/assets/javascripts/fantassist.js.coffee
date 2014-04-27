@@ -1,4 +1,4 @@
-window.Fantassist2 =
+window.Fantassist =
   Models: {}
   Collections: {}
   Views: {}
@@ -6,7 +6,7 @@ window.Fantassist2 =
   EventBus: _.extend {}, Backbone.Events
 
 # helper function for Hogan Templates
-Fantassist2.template = (filename) -> HoganTemplates[filename]
+Fantassist.template = (filename) -> HoganTemplates[filename]
 
 #$(document).ready ->
-  #Fantassist2.initialize()
+  #Fantassist.initialize()

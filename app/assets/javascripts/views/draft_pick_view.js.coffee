@@ -1,4 +1,4 @@
-class Fantassist2.Views.DraftPickView extends Backbone.View
+class Fantassist.Views.DraftPickView extends Backbone.View
 
   tagName: 'tr'
   className: 'draft-pick'
@@ -7,7 +7,7 @@ class Fantassist2.Views.DraftPickView extends Backbone.View
     @listenTo(@model, 'destroy', @handleDraftPickDestroy)
 
   render: ->
-    @$el.html(Fantassist2.template('draft_pick').render(@model.attributes))
+    @$el.html(Fantassist.template('draft_pick').render(@model.attributes))
     @
 
   handleDraftPickDestroy: ->

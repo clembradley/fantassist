@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: fantassist2_development
+  database: fantassist_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: fantassist2_test
+  database: fantassist_test
   username: postgres
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: fantassist2_production
+  database: fantassist_production
   username: postgres
   password: <%= ENV['FANTASSIST2_DATABASE_PASSWORD'] %>

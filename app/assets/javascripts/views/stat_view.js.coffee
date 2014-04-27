@@ -1,4 +1,4 @@
-class Fantassist2.Views.StatView extends Backbone.View
+class Fantassist.Views.StatView extends Backbone.View
 
   tagName: 'tr'
 
@@ -8,13 +8,13 @@ class Fantassist2.Views.StatView extends Backbone.View
     'click .draftable-player': 'handleClickPlayer'
 
   render: ->
-    @$el.html(Fantassist2.template('stat').render(@model.attributes))
+    @$el.html(Fantassist.template('stat').render(@model.attributes))
     @
 
   handleClickPlayer: (e) =>
     e.preventDefault()
-    newDraftPick = new Fantassist2.Models.DraftPick
-    newDraftPick.set player_id: @model.attributes.player.id, drafter_id: Fantassist2.current_drafter.id, player: @model.attributes.player
+    newDraftPick = new Fantassist.Models.DraftPick
+    newDraftPick.set player_id: @model.attributes.player.id, drafter_id: Fantassist.current_drafter.id, player: @model.attributes.player
 
     $('#ajax-loader').css('visibility', 'visible')
     newDraftPick.save(null,
@@ -25,5 +25,5 @@ class Fantassist2.Views.StatView extends Backbone.View
         alert 'unexpected error! draft pick did not save -- please try again!'
     )
 
-    Fantassist2.EventBus.trigger('draftPick:create', newDraftPick)
+    Fantassist.EventBus.trigger('draftPick:create', newDraftPick)
     @remove()

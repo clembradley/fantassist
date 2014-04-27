@@ -4,13 +4,13 @@
 
 :javascript
   $(function() {
-    Fantassist2.current_drafter = #{@current_drafter.to_json};
+    Fantassist.current_drafter = #{@current_drafter.to_json};
 
-    stats = new Fantassist2.Collections.Stats(#{@stats.to_json});
-    statsView = new Fantassist2.Views.StatsView({collection: stats});
+    stats = new Fantassist.Collections.Stats(#{@stats.to_json});
+    statsView = new Fantassist.Views.StatsView({collection: stats});
 
-    draftPicks = new Fantassist2.Collections.DraftPicks(#{@draft_picks.to_json});
-    draftPicksView = new Fantassist2.Views.DraftPicksView({collection: draftPicks});
+    draftPicks = new Fantassist.Collections.DraftPicks(#{@draft_picks.to_json});
+    draftPicksView = new Fantassist.Views.DraftPicksView({collection: draftPicks});
 
 
     $('#stats').html(statsView.render().el);

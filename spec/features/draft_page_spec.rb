@@ -11,7 +11,7 @@ describe 'the initial draft page' do
   it 'has a link to the homepage', js: true do
     visit root_path
 
-    find('.navbar').click_link('Fantassist2')
+    find('.navbar').click_link('Fantassist')
 
     expect(current_path).to eq(root_path)
   end

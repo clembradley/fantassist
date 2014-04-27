@@ -3,7 +3,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require fantassist2
+//= require fantassist
 //= require hogan
 //= require_tree ../templates
 //= require_tree ./models

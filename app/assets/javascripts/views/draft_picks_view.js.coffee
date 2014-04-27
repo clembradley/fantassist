@@ -1,14 +1,14 @@
-class Fantassist2.Views.DraftPicksView extends Backbone.View
+class Fantassist.Views.DraftPicksView extends Backbone.View
 
   events:
     'click #reset-btn': 'handleReset'
 
   initialize: ->
     @listenTo(@collection, 'add', @addNewDraftPick)
-    @listenTo(Fantassist2.EventBus, 'draftPick:create', @addDraftPickToCollection)
+    @listenTo(Fantassist.EventBus, 'draftPick:create', @addDraftPickToCollection)
 
   render: ->
-    @$el.html(Fantassist2.template('draft_picks').render())
+    @$el.html(Fantassist.template('draft_picks').render())
     @collection.each (draftPick) =>
       @addNewDraftPick(draftPick)
     @
@@ -17,7 +17,7 @@ class Fantassist2.Views.DraftPicksView extends Backbone.View
     @collection.add(draftPick)
 
   addNewDraftPick: (draftPick) ->
-    draftPickView = new Fantassist2.Views.DraftPickView model: draftPick
+    draftPickView = new Fantassist.Views.DraftPickView model: draftPick
     @$('tbody').append(draftPickView.render().el)
 
   handleReset: (e) ->
