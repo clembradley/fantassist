@@ -31,9 +31,6 @@ def find_or_create_stat!(player, row)
   end
 end
 
-user = User.find_or_create_by!(email: 'default@example.com')
-user.drafters.find_or_create_by!(name: 'default')
-
 @count = 0
 @failures = 0
 CSV.read(STATS_FILENAME, :headers => true).each do |row|

@@ -31,8 +31,8 @@ end
 group :test do
   gem 'capybara', '~> 2.2.1'
   gem 'database_cleaner', '~> 1.2.0'
-  gem 'poltergeist', '~> 1.5.0'
   gem 'rspec-rails', '~> 2.14.2'
+  gem 'selenium-webdriver', '~> 2.41.0'
 
   # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
   gem 'shoulda-matchers', '~> 2.5.0', require: false
