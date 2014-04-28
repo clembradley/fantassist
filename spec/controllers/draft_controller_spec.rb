@@ -21,7 +21,7 @@ describe DraftController do
       expect(assigns(:stats)).to eq(expected_stats)
     end
 
-    it 'assigns @current_drafter to the default drafter' do
+    it 'assigns @current_drafter to the first drafter of the currently logged in user' do
       expected_drafter = create(:drafter, name: 'default')
 
       get :index

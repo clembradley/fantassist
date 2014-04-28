@@ -3,7 +3,7 @@ require_relative 'spec_helper'
 feature 'Drafting players' do
 
   background do
-    create(:drafter, name: 'default')
+    create(:drafter)
   end
 
   scenario 'When I click a player\'s name, a DraftPick record gets created for that player', js: true do
