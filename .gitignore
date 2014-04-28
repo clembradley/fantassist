@@ -24,3 +24,4 @@ config/initializers/secret_token.rb
 tags
 .pryrc
 .aprc
+.env

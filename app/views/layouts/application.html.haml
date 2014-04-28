@@ -21,5 +21,15 @@
               %a{href: "#"} Draft
             %li
               = image_tag('ajax-loader.gif', id: 'ajax-loader', style: 'display: block; padding: 15px; visibility: hidden')
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              - if !current_user
+                = link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
+              - else
+                %div{style: 'display: block; padding: 15px;'}= current_user.email
+                %li
+                  = link_to "Log out", destroy_user_session_path
     .container-fluid
+      - flash.each do |key, value|
+        = content_tag :p, value, class: "flash #{key}"
       = yield

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419183239) do
+ActiveRecord::Schema.define(version: 20140428030400) do
 
   create_table "draft_picks", force: true do |t|
     t.integer  "drafter_id"
@@ -74,8 +74,14 @@ ActiveRecord::Schema.define(version: 20140419183239) do
     t.string   "email",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "image"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
 
 end

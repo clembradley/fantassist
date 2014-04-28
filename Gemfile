@@ -19,6 +19,10 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'hogan_assets', '~> 1.6.0'
 gem 'awesome_print', '~> 1.2.0'
 
+gem 'devise', '~> 3.2.4'
+gem 'omniauth', '~> 1.2.1'
+gem 'omniauth-google-oauth2', '~> 0.2.4'
+
 group :development do
   gem 'brakeman', '~> 2.4.3', require: false
   gem 'spring', '~> 1.1.2'
@@ -40,6 +44,7 @@ group :development, :test do
   gem 'fuubar', '~> 1.3.2'
   gem 'pry-rails', '~> 0.3.2'
   gem 'pry-plus', '~> 1.0.0'
+  gem 'dotenv-rails'
 end
 
 group :production do
