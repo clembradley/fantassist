@@ -3,7 +3,7 @@ Fantassist
 
 This codebase is the foundation for what will be Fantassist. The remaining functionality in Fantassist is currently in development on a fork, which includes the heart of Fantassist -- the suggestion algorithm. This repo is essentially an example of a simple Backbone/Rails application.
 
-This simplified version of Fantassit can be seen live at [fantassist.herokuapp.com](fantassist.herokuapp.com).
+This simplified version of Fantassit can be seen live at [fantassist.herokuapp.com](http://fantassist.herokuapp.com).
 
 ## What Fantassist Will Be
 
