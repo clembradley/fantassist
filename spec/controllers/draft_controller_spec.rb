@@ -21,8 +21,8 @@ describe DraftController do
       expect(assigns(:stats)).to eq(expected_stats)
     end
 
-    it 'assigns @current_drafter' do
-      expected_drafter = create(:drafter)
+    it 'assigns @current_drafter to the default drafter' do
+      expected_drafter = create(:drafter, name: 'default')
 
       get :index
 
