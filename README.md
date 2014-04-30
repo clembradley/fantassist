@@ -35,7 +35,17 @@ Fantassist is a fantasy baseball draft pick suggestion tool. It seeks to recomme
 
 
 # Local Setup
+Fantassist is a Ruby on Rails app, and thus requires the following to already be installed: 
+* RVM
+* Ruby 2.1.1
+* Bundler (for gem dependency management)
+* Postgresql database
+* Git
+
+In a Linux/Mac console
 ```sh
+$ git clone https://github.com/clembradley/fantassist.git
+$ cd fantassist
 $ bundle install
 $ rake db:setup
 ```
