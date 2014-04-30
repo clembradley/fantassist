@@ -1,4 +1,4 @@
-Fantassist
+Fantassist [![Build Status](https://travis-ci.org/clembradley/fantassist.svg?branch=install-travis)](https://travis-ci.org/clembradley/fantassist)
 ===========
 
 This codebase is the foundation for what will be Fantassist. The remaining functionality in Fantassist is currently in development on a fork, which includes the heart of Fantassist -- the suggestion algorithm. This repo is essentially an example of a simple Backbone/Rails application.

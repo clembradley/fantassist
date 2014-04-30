@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.1.1
+cache: bundler
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rspec
+before_script:
+  - psql -c 'create database fantassist_test' -U postgres
+before_install:
+  - 'export DISPLAY=:99.0'
+  - 'sh -e /etc/init.d/xvfb start'

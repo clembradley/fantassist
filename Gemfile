@@ -24,7 +24,6 @@ gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-google-oauth2', '~> 0.2.4'
 
 group :development do
-  gem 'brakeman', '~> 2.4.3', require: false
   gem 'spring', '~> 1.1.2'
 end
 
@@ -33,6 +32,7 @@ group :test do
   gem 'database_cleaner', '~> 1.2.0'
   gem 'rspec-rails', '~> 2.14.2'
   gem 'selenium-webdriver', '~> 2.41.0'
+  gem 'rake'
 
   # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
   gem 'shoulda-matchers', '~> 2.5.0', require: false
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'fuubar', '~> 1.3.2'
   gem 'pry-rails', '~> 0.3.2'
   gem 'pry-plus', '~> 1.0.0'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 group :production do
