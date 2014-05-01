@@ -25,13 +25,14 @@ Fantassist is a fantasy baseball draft pick suggestion tool. It seeks to recomme
 ### Features
 * Single-page Backbone.js app for the draft engine
 * REST API built on Rails
-* Google Oauth2 Authentication
-* Coffeescript
-* Haml layout files
-* Mustache templates
-* Bootstrap front-end framework
+* Continuous Integration with Travis
 * Capybara & Selenium feature specs
 * RSpec unit and request specs (request specs for testing the Rails API backend)
+* Google Oauth2 Authentication
+* Bootstrap front-end framework
+* Coffeescript over JavaScript
+* Haml layout files
+* Mustache templates
 
 
 # Local Setup
