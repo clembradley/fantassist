@@ -8,7 +8,7 @@ describe Drafter do
     it 'has many draft picks' do
       expected_draft_picks = create_list(:draft_pick, 2, drafter: drafter)
 
-      expect(drafter.draft_picks.sort).to eq(expected_draft_picks.sort)
+      expect(drafter.draft_picks).to match_array(expected_draft_picks)
     end
 
     specify 'associated draft picks get destroyed when a drafter is destroyed' do

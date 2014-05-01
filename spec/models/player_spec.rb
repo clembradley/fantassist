@@ -14,7 +14,7 @@ describe Player do
     it 'has many stats' do
       expected_stats = create_list(:stat, 2, player: player)
 
-      expect(player.stats.sort).to eq(expected_stats.sort)
+      expect(player.stats).to match_array(expected_stats)
     end
 
     specify 'associated draft pick get destroyed when a player is destroyed' do

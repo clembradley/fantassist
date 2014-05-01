@@ -8,7 +8,7 @@ describe User do
     it 'has many drafters' do
       expected_drafters = create_list(:drafter, 2, user: user)
 
-      expect(user.drafters.sort).to eq(expected_drafters.sort)
+      expect(user.drafters).to match_array(expected_drafters)
     end
 
     specify 'associated drafters get destroyed when a user is destroyed' do
