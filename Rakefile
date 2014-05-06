@@ -5,9 +5,12 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = FileList.new('spec/**/*_spec.rb')
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.pattern = FileList.new('spec/**/*_spec.rb')
+  end
+  task :default => :spec
+rescue LoadError
 end
 
-task :default => :spec
