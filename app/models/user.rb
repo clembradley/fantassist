@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :omniauthable, :omniauth_providers => [:google_oauth2]
+  devise :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_many :drafters, dependent: :destroy
 
