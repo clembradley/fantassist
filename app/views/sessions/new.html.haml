@@ -1,5 +1,7 @@
 .row
-  .col-md-4.col-md-offsset-2
-    %p
-      You must be signed in through Google to use Fantassist!
-      = link_to "Sign in with Google.", user_omniauth_authorize_path(:google_oauth2)
+  .col-md-12.text-center
+    %h1{style: 'margin-top: 150px; margin-bottom: 30px'}
+      Please sign in
+    %a.btn.btn-social.btn-lg.btn-google-plus{href: "#{user_omniauth_authorize_path(:google_oauth2)}"}
+      = fa_icon 'google-plus'
+      Sign in with Google

@@ -17,6 +17,7 @@ gem 'haml', '~> 4.0.5'
 gem 'haml-rails', '~> 0.5.3'
 gem 'hogan_assets', '~> 1.6.0'
 gem 'awesome_print', '~> 1.2.0'
+gem 'font-awesome-rails', '~> 4.0.3.2'
 
 gem 'devise', '~> 3.2.4'
 gem 'omniauth', '~> 1.2.1'

@@ -23,13 +23,11 @@
               = image_tag('ajax-loader.gif', id: 'ajax-loader', style: 'display: block; padding: 15px; visibility: hidden')
           %ul.nav.navbar-nav.navbar-right
             %li
-              - if !current_user
-                = link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
-              - else
+              - if current_user
                 = image_tag current_user.image, title: "#{current_user.first_name} #{current_user.last_name}"
                 %li
                   = link_to "Log out", destroy_user_session_path
     .container-fluid
       - flash.each do |key, value|
-        = content_tag :p, value, class: "flash #{key}"
+        = content_tag :p, value, class: "flash #{key}" 
       = yield
