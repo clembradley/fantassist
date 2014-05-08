@@ -52,9 +52,7 @@ $ rake db:setup
 ```
 
 To run the app locally:
-* add `127.0.0.1 	local.herokuapp.com` to your `/etc/hosts` file
-  * `$ sudo echo '127.0.0.1 	local.herokuapp.com' >> /etc/hosts`
-* `rails s`
-* navigate to `local.herokuapp.com:3000` in your browser. sign in through Google when prompted. 
-
-\*note: running the app locally will currently fail on other developers' machines, since the Google client_id and api key are not checked in to the repo. A fix is on the way (that does not involve checking in the key). 
+```sh
+$ rails server
+```
+* navigate to `localhost:3000` in your browser. a test-user will be used instead of a real Google account when signing in. 
