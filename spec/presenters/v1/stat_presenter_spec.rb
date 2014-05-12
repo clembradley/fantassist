@@ -38,4 +38,12 @@ describe V1::StatPresenter do
       expect(stat_presenter.as_json).to eq(expected_stat)
     end
   end
+
+  describe '.from_list' do
+    it 'returns an array of stat presenters' do
+      stats = create_list(:stat, 2)
+
+      expect(V1::StatPresenter.from_list(stats).map(&:class)).to eq([V1::StatPresenter, V1::StatPresenter])
+    end
+  end
 end
