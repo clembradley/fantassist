@@ -24,7 +24,7 @@ class Api::V1::DraftPicksController < ApplicationController
   end
 
   def index
-    draft_picks = DraftPick.all
+    draft_picks = DraftPick.where(params.permit(:drafter_id))
     draft_pick_presenters = draft_picks.map { |dp| V1::DraftPickPresenter.new(dp) }
 
     render json: draft_pick_presenters

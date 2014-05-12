@@ -11,6 +11,16 @@ describe Api::V1::DraftPicksController do
       expect(response.status).to eq(200)
       expect(json_body).to eq(expected_draft_picks.map { |dp| V1::DraftPickPresenter.new(dp) }.as_json)
     end
+
+    it 'optionally returns draft picks by drafter_id' do
+      expected_draft_pick = create(:draft_pick)
+      not_expected_draft_pick = create(:draft_pick)
+
+      get "/api/v1/draft_picks?drafter_id=#{expected_draft_pick.drafter_id}"
+
+      expect(response.status).to eq(200)
+      expect(json_body).to eq([V1::DraftPickPresenter.new(expected_draft_pick)].as_json)
+    end
   end
 
   describe 'DELETE /api/v1/draft_picks' do
