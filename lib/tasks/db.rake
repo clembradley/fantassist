@@ -39,7 +39,6 @@ namespace :db do
         @count += 1
         puts "#{@count}) #{player.last_name}, #{player.first_name} #{stat.attributes.map {|k, v| "#{k}: #{v}"}.join(', ')}"
       rescue => e
-        binding.pry
         @failures << {record: e.record, message: e.message}
       end
     end
