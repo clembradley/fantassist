@@ -1,7 +1,8 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.2.2
 cache: bundler
+sudo: false
 script:
   - bundle exec rake db:schema:load
   - bundle exec rspec
