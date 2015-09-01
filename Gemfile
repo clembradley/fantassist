@@ -17,6 +17,7 @@ gem "jquery-rails", "~> 3.1.0"
 gem "omniauth", "~> 1.2.1"
 gem "omniauth-google-oauth2", "~> 0.2.4"
 gem "pg", "0.17.1"
+gem "puma", "~> 2.13.4"
 gem "sass-rails", "~> 4.0.3"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "uglifier", ">= 1.3.0"
