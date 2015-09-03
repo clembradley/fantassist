@@ -29,21 +29,20 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "~> 2.2.1"
+  gem "capybara", "~> 2.5.0"
   gem "database_cleaner", "~> 1.2.0"
-  gem "rspec-rails", "~> 2.14.2"
+  gem "rspec-rails", "~> 3.3"
   gem "selenium-webdriver", "~> 2.47"
   gem "rake"
 
   # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
-  gem "shoulda-matchers", "~> 2.5.0", require: false
+  gem "shoulda-matchers", "~> 2.5", require: false
 end
 
 group :development, :test do
   gem "awesome_print", "~> 1.2.0"
   gem "factory_girl_rails", "~> 4.4.1"
   gem "faker", "~> 1.3.0"
-  gem "fuubar", "~> 1.3.2"
   gem "pry-rails", "~> 0.3.4"
   gem "pry-byebug", "~> 3.1.0"
   gem "pry-doc", "~> 0.8.0"

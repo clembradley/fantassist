@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user
     else
-      UserManager.first_or_create_by(auth.slice(:provider, :uid)) do |user|
+      UserManager.first_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
         user.provider = auth.provider
         user.uid = auth.uid
         user.first_name = auth.info.first_name

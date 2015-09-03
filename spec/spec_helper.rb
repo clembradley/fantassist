@@ -2,7 +2,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'shoulda-matchers'
 require 'capybara/rspec'
 require 'capybara/rails'
@@ -19,20 +18,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  #config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
   config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
@@ -72,6 +57,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.infer_spec_type_from_file_location!
 end
 
 RSpec::Matchers.define :become_true do |expected|
@@ -84,5 +71,9 @@ RSpec::Matchers.define :become_true do |expected|
     rescue TimeoutError
       false
     end
+  end
+
+  def supports_block_expectations?
+    true
   end
 end
