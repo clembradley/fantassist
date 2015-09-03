@@ -6,18 +6,21 @@ describe User do
 
   describe 'associations' do
     it 'has many drafters' do
-      expected_drafters = create_list(:drafter, 2, user: user)
+      league1, league2 = create_list(:league, 2)
+      expected_drafters = [
+        create(:drafter, user: user, league: league1),
+        create(:drafter, user: user, league: league2),
+      ]
 
       expect(user.drafters).to match_array(expected_drafters)
     end
 
     specify 'associated drafters get destroyed when a user is destroyed' do
-      create_list(:drafter, 2, user: user)
-      expect(user.drafters).to be_present
+      create(:drafter, user: user)
 
       user.destroy
 
-      expect(Drafter.where(user_id: user.id)).to be_blank
+      expect(user.drafters.reload).to be_blank
     end
   end
 

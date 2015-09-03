@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506163345) do
+ActiveRecord::Schema.define(version: 20150902190914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "draft_picks", force: true do |t|
+  create_table "draft_picks", force: :cascade do |t|
     t.integer  "drafter_id"
     t.integer  "player_id"
     t.datetime "created_at"
@@ -27,24 +27,31 @@ ActiveRecord::Schema.define(version: 20140506163345) do
   add_index "draft_picks", ["drafter_id"], name: "index_draft_picks_on_drafter_id", using: :btree
   add_index "draft_picks", ["player_id"], name: "index_draft_picks_on_player_id", using: :btree
 
-  create_table "drafters", force: true do |t|
+  create_table "drafters", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "league_id",  null: false
   end
 
+  add_index "drafters", ["league_id", "user_id"], name: "index_drafters_on_league_id_and_user_id", unique: true, using: :btree
+  add_index "drafters", ["league_id"], name: "index_drafters_on_league_id", using: :btree
   add_index "drafters", ["user_id"], name: "index_drafters_on_user_id", using: :btree
 
-  create_table "players", force: true do |t|
-    t.string   "first_name",   null: false
-    t.string   "last_name",    null: false
-    t.string   "position",     null: false
-    t.string   "organization", null: false
+  create_table "leagues", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "first_name",   limit: 255, null: false
+    t.string   "last_name",    limit: 255, null: false
+    t.string   "position",     limit: 255, null: false
+    t.string   "organization", limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "stats", force: true do |t|
+  create_table "stats", force: :cascade do |t|
     t.integer  "player_id"
     t.integer  "at_bats"
     t.integer  "hits"
@@ -72,20 +79,20 @@ ActiveRecord::Schema.define(version: 20140506163345) do
 
   add_index "stats", ["player_id"], name: "index_stats_on_player_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                          null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",              limit: 255,             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "image"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "sign_in_count",      default: 0
+    t.string   "provider",           limit: 255
+    t.string   "uid",                limit: 255
+    t.string   "image",              limit: 255
+    t.string   "first_name",         limit: 255
+    t.string   "last_name",          limit: 255
+    t.integer  "sign_in_count",                  default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip", limit: 255
+    t.string   "last_sign_in_ip",    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

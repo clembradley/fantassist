@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   devise :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_many :drafters, dependent: :destroy
+  has_many :leagues, through: :drafters
 
   validates :email,
     format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, allow_blank: true},

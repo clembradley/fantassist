@@ -51,6 +51,8 @@ describe Drafter do
     subject { build(:drafter) }
 
     it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:league) }
     it { should validate_presence_of(:user_id) }
+    it { should belong_to(:league) }
   end
 end
