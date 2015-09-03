@@ -57,11 +57,11 @@ describe Player do
   context 'validations' do
     subject { build(:player) }
 
-    it { should validate_presence_of(:first_name) }
-    it { should validate_presence_of(:last_name) }
-    it { should validate_presence_of(:position) }
-    it { should validate_presence_of(:organization) }
-    it { should ensure_inclusion_of(:position).in_array(Player::POSITIONS) }
-    it { should ensure_inclusion_of(:organization).in_array(Player::ORGANIZATIONS) }
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:position) }
+    it { is_expected.to validate_presence_of(:organization) }
+    it { is_expected.to ensure_inclusion_of(:position).in_array(Player::POSITIONS) }
+    it { is_expected.to ensure_inclusion_of(:organization).in_array(Player::ORGANIZATIONS) }
   end
 end

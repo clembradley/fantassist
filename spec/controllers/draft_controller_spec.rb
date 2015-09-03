@@ -5,7 +5,7 @@ describe DraftController do
   let(:current_user) { create(:drafter).user }
 
   before do
-    controller.stub current_user: current_user
+    allow(controller).to receive_messages current_user: current_user
   end
 
   describe 'GET index' do

@@ -60,11 +60,11 @@ describe Stat do
   context 'validations' do
     subject { build(:stat) }
 
-    it { should validate_presence_of(:player) }
-    it { should validate_presence_of(:player_id) }
-    it { should validate_presence_of(:year) }
-    it { should allow_value(true).for(:projection) }
-    it { should allow_value(false).for(:projection) }
-    it { should_not allow_value(nil).for(:projection) }
+    it { is_expected.to validate_presence_of(:player) }
+    it { is_expected.to validate_presence_of(:player_id) }
+    it { is_expected.to validate_presence_of(:year) }
+    it { is_expected.to allow_value(true).for(:projection) }
+    it { is_expected.to allow_value(false).for(:projection) }
+    it { is_expected.not_to allow_value(nil).for(:projection) }
   end
 end

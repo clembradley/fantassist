@@ -4,10 +4,10 @@ describe DraftPick do
   describe 'validations' do
     subject { build(:draft_pick) }
 
-    it { should validate_presence_of(:drafter_id) }
-    it { should validate_presence_of(:drafter) }
-    it { should validate_presence_of(:player_id) }
-    it { should validate_presence_of(:player) }
-    it { should validate_uniqueness_of(:player_id) }
+    it { is_expected.to validate_presence_of(:drafter_id) }
+    it { is_expected.to validate_presence_of(:drafter) }
+    it { is_expected.to validate_presence_of(:player_id) }
+    it { is_expected.to validate_presence_of(:player) }
+    it { is_expected.to validate_uniqueness_of(:player_id) }
   end
 end

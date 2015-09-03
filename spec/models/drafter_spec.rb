@@ -50,9 +50,9 @@ describe Drafter do
   context 'validations' do
     subject { build(:drafter) }
 
-    it { should validate_presence_of(:user) }
-    it { should validate_presence_of(:league) }
-    it { should validate_presence_of(:user_id) }
-    it { should belong_to(:league) }
+    it { is_expected.to validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:league) }
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to belong_to(:league) }
   end
 end
