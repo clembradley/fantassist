@@ -4,11 +4,12 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'shoulda-matchers'
+require 'capybara/poltergeist'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'timeout'
 
-Capybara.javascript_driver = :selenium
+Capybara.javascript_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

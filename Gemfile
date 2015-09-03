@@ -32,7 +32,7 @@ group :test do
   gem "capybara", "~> 2.2.1"
   gem "database_cleaner", "~> 1.2.0"
   gem "rspec-rails", "~> 2.14.2"
-  gem "selenium-webdriver", "~> 2.47"
+  gem "poltergeist", "~> 1.6.0"
   gem "rake"
 
   # require this in spec_helper instead, to prevent warnings issue: https://github.com/rspec/rspec-rails/pull/772
