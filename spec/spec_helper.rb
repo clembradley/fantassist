@@ -64,7 +64,7 @@ end
 RSpec::Matchers.define :become_true do |expected|
   match do |block|
     begin
-      Timeout.timeout(Capybara.default_wait_time) do
+      Timeout.timeout(Capybara.default_max_wait_time) do
         sleep(0.1) until value = block.call
         value
       end

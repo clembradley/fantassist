@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe V1::StatPresenter do
 
-  describe '#as_json' do
-    it 'returns the expected json representation of a stat' do
-      stat = build(:stat, :hitter, :pitcher)
+  describe "#as_json" do
+    it "returns the expected json representation of a stat" do
+      stat = build_stubbed(:stat, :hitter, :pitcher)
 
       stat_presenter = V1::StatPresenter.new(stat)
 

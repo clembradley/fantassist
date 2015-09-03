@@ -25,13 +25,13 @@ describe Stat do
       at_bats = 402
       hits = 158
       expected_average = hits / at_bats.to_f
-      stat = build(:stat, at_bats: at_bats, hits: hits)
+      stat = build_stubbed(:stat, at_bats: at_bats, hits: hits)
 
       expect(stat.batting_average).to eq(expected_average)
     end
 
     it 'returns nil if the stat has no at_bats' do
-      stat = build(:stat, at_bats: nil, hits: 100)
+      stat = build_stubbed(:stat, at_bats: nil, hits: 100)
 
       expect(stat.batting_average).to be_nil
     end
@@ -43,7 +43,13 @@ describe Stat do
       hits = 156
       hbp = 14
       plate_appearances = 700
-      stat = build(:stat, walks_drawn: walks, hits: hits, hit_by_pitch: hbp, plate_appearances: plate_appearances)
+      stat = build_stubbed(
+        :stat,
+        hit_by_pitch: hbp,
+        hits: hits,
+        plate_appearances: plate_appearances,
+        walks_drawn: walks,
+      )
 
       expected_obp = (hits + walks + hbp) / plate_appearances.to_f
 
@@ -51,7 +57,13 @@ describe Stat do
     end
 
     it 'returns nil if the stat has no plate_appearances' do
-      stat = build(:stat, walks_drawn: 5, hits: 100, hit_by_pitch: 7, plate_appearances: nil)
+      stat = build_stubbed(
+        :stat,
+        hit_by_pitch: 7,
+        hits: 100,
+        plate_appearances: nil,
+        walks_drawn: 5,
+      )
 
       expect(stat.on_base_percentage).to be_nil
     end
