@@ -17,8 +17,10 @@
           %a.navbar-brand{href: "#"} Fantassist
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{href: "#"} Draft
+            %li{class: current_page?(root_path) && "active"}
+              = link_to "Draft", root_path
+            %li{class: current_page?(settings_path) && "active"}
+              = link_to "Settings", settings_path
             %li
               = image_tag('ajax-loader.gif', id: 'ajax-loader', style: 'display: block; padding: 15px; visibility: hidden')
           %ul.nav.navbar-nav.navbar-right
